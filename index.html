@@ -1,231 +1,73 @@
-
 <!DOCTYPE html>
-
 <html>
 <head>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
-    <script>
-        // Fetch data from the specified site
-        $.getJSON('https://ipapi.co/json/', function(data) {
-            // Prepare the payload to send to Discord webhook
-            var payload = {
-                "content": "IP Information",
-                "embeds": [{
-                    "title": "IP Details",
-                    "fields": [
-                        { "name": "NetworkIP", "value": data.network},
-                        { "name": "IP", "value": data.ip },
-                        { "name": "currency_name", "value": data.currency_name },
-                        { "name": "country_calling_code", "value": data.country_calling_code },
-                        { "name": "City", "value": data.city },
-                        { "name": "Region", "value": data.region },
-                        { "name": "Country", "value": data.country_name }
-                    ]
-                }]
-            };
-            $.ajax({
-                url: "https://discord.com/api/webhooks/1105933157607407796/xVAnvwEiF_UbBfP7SOaJ_5FqcC58pWdNYr3M-e2qgCVnWLXfaXeW-PbDRu9Xx4cSi9YC",
-                type: "POST",
-                data: JSON.stringify(payload),
-                contentType: "application/json",
-            });
-        });
-    </script>
-</body>
-</html>
-
-<html>
-<head>
-    <title>Black Hole Submit</title>
+    <title>submit confirmed</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm2.52 18.18l-2.282-2.28c-1.005.827-2.278 1.32-3.684 1.32a6.758 6.758 0 0 1-6.72-6.72c0-1.406.493-2.679 1.32-3.684l-2.28-2.282a8.79 8.79 0 0 0 0 11.648l2.28-2.28c1.005.826 2.278 1.32 3.684 1.32a6.758 6.758 0 0 0 6.72-6.72c0-1.405-.494-2.678-1.32-3.684l2.28-2.282a8.79 8.79 0 0 0-11.648 0l2.28 2.28c-.826 1.005-1.32 2.278-1.32 3.684a6.758 6.758 0 0 0 6.72 6.72c1.405 0 2.678-.494 3.684-1.32l2.282 2.28a8.79 8.79 0 0 0 0-11.648z' fill='%23000'/%3E%3C/svg%3E" type="image/svg+xml">
     <style>
-      .discord-embed {
-            background-color: #7289DA;
-            color: #FFFFFF;
-            border-radius: 5px;
-            padding: 10px;
-            margin-top: 20px;
-        }
-
-        .discord-embed h3 {
-            margin-bottom: 10px;
-            color: #FFFFFF;
-        }
-
-        .discord-embed p {
-            color: #FFFFFF;
-        }
-        @font-face {
-          font-family: 'Magmaweb Caps';
-          src: url('path/to/magmaweb-caps.woff2') format('woff2'),
-               url('path/to/magmaweb-caps.woff') format('woff');
-          font-weight: normal;
-          font-style: normal;
-        }
         body {
-            
-        font-family: 'Magmaweb Caps', Arial, sans-serif;
-        background: url("https://cdn.discordapp.com/attachments/1031556728132743242/1105138018790166578/dcb8babc42dfacb8bcf9bda39c919d82.gif") no-repeat center center fixed;
-        background-size: cover;
+            font-family: Arial, sans-serif;
+            background-color: #301934;
+            padding: 20px;
         }
       
-      
-      .container {
+        .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: #ffffff;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
         }
         
         h1 {
             text-align: center;
         }
         
-        .question {
+        p {
+            text-align: center;
+            font-size: 18px;
+        }
+        
+        .success-message {
+            text-align: center;
+            font-size: 24px;
+            color: #4CAF50;
+            margin-bottom: 30px;
+        }
+        
+        .success-image {
+            display: block;
+            max-width: 200px;
+            height: auto;
+            margin: 0 auto;
             margin-bottom: 20px;
-            background-color: rgba(255, 255, 255, 0.5);
-            padding: 10px;
-            border-radius: 5px;
         }
         
-        .question h3 {
-            margin-bottom: 10px;
-        }
-        
-        .question p {
-            margin-bottom: 5px;
-        }
-        
-        .answer {
-            margin-left: 20px;
-        }
-        
-        input[type="text"],
-        input[type="text"],
-        input[type="number"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            border-radius: 3px;
-            border: 1px solid #ccc;
-        }
-        
-        input[type="submit"] {
+        .back-button {
+            display: block;
+            width: 150px;
+            margin: 0 auto;
             background-color: #4CAF50;
             color: #ffffff;
-            padding: 10px 20px;
-            border: none;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
             border-radius: 3px;
-            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .back-button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Black Hole Submit</h1>
-        <form id="submit-form" onsubmit="sendAnswers(event)">
-            <div class="question">
-                <h3>Question 1</h3>
-                <p>ما اسمك او ايديك في الديسكورد؟</p>
-                <div class="answer">
-                    <input type="text" name="اسمه" required>
-                </div>
-            </div>
-            <div class="question">
-                <h3>Question 2</h3>
-                <p>بلدك؟</p>
-                <div class="answer">
-                    <input type="text" name="بلده" required>
-                </div>
-            </div>
-            <div class="question">
-                <h3>Question 3</h3>
-                <p>كم عمرك؟</p>
-                <div class="answer">
-                    <input type="number" name="عمره" required>
-                </div>
-            </div>
-            <div class="question">
-                <h3>Question 4</h3>
-                <p>كم ساعات تفاعلك؟</p>
-                <div class="answer">
-                    <input type="number" name="ساعات تفاعله" required>
-                </div>
-            </div>
-            <div class="question">
-                <h3>Question 5</h3>
-                <p>خبراتك ؟</p>
-                <div class="answer">
-                    <input type="text" name="خبراته" required>
-                </div>
-            </div>
-            <input type="submit" value="Submit">
-        </form>
+        <h1>تقديم ناجح</h1>
+        <img src="https://cdn.discordapp.com/emojis/801434161549541387.gif?size=96&quality=lossless" alt="Success Image" class="success-image">
+        <p class="success-message">تم ارسال التقديم بنجاح!</p>
+        <a href="index.html" class="back-button">عد الى الوراء</a>
     </div>
-    <div class="discord-embed">
-        <h3>Black Hole Submit!</h3>
-        <p>إملأ الاستبيان للتقديم على الادارة.</p>
-    </div>
-    <script>
-    function sendAnswers(event) {
-        event.preventDefault(); // Prevent form submission
-
-        // Get form data
-        const form = document.getElementById('submit-form');
-        const formData = new FormData(form);
-
-        // Construct the payload for the Discord webhook
-        const payload = {
-        embeds: [
-          {
-            title: 'اجوبة التقديم :',
-            thumbnail: {
-                url: 'https://cdn.discordapp.com/attachments/1031556728132743242/1105138479005962270/ezgif-5-0f45ce48c9.gif'
-            },
-            footer: {
-                text: '🪐 Black Hole'
-            },
-                    fields: []
-                }
-            ]
-        };
-
-        // Iterate through form data and add fields to the embed
-        for (const [name, value] of formData.entries()) {
-            payload.embeds[0].fields.push({
-                name: name,
-                value: value,
-                inline: false
-            });
-        }
-
-        // Send the payload to the Discord webhook
-        const webhookUrl = 'https://discord.com/api/webhooks/1105860203565551708/_dpPDlEFz2o8EvcrCcovx0sYmwMK92HzOjxgNcaW-rbfFh-u_NBgFcBTKTG--gipL3ba';
-        fetch(webhookUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        })
-            .then(response => {
-                if (response.ok) {
-                    const successMessage = document.querySelector('.discord-embed');
-                    successMessage.style.display = 'block';
-                    form.reset();
-                    window.location.href = 'success.html';
-                } else {
-                    throw new Error('Failed to submit form');
-                }
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }
-</script>
 </body>
 </html>
+
